@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stardapp20210105/screen/speed_page.dart';
+import 'package:stardapp20210105/widget/drawer_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'lecture_page.dart';
 
@@ -20,40 +21,7 @@ class _MainPageState extends State<MainPage> {
           accentColor: Colors.blue,
         ),
         home: Scaffold(
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  child: Text(
-                    'StarD',
-                    style: TextStyle(fontSize: 30, color: Colors.white),
-                  ),
-                  decoration: BoxDecoration(color: Colors.blue),
-                ),
-                ListTile(
-                  title: Text('Portfolio'),
-                  onTap: () {
-                    // 네이게이터 팝을 통해 드로워를 닫는다.
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LecturePage()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text('Location'),
-                  onTap: () {
-                    // 네이게이터 팝을 통해 드로워를 닫는다.
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SpeedPage()),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
+          drawer: DrawerWidget(),
           appBar: AppBar(
             title: Text('STARD : 왕초보 플러터 학습',
                    style: TextStyle(
@@ -76,7 +44,7 @@ class _MainPageState extends State<MainPage> {
                     color: Colors.black,
                   ),
                   Text(
-                    '    Flutter를 배우고자 하는 \n 왕초보를 위한 학습 앱입니다.',
+                    '    Flutter를 배우고자 하는 \n 왕초보 학습 가이드 앱입니다.',
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   Icon(
