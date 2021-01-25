@@ -31,7 +31,7 @@ class _MainPageState extends State<MainPage> {
           ),
           body: Column(
             children: [
-              Image(image: AssetImage('assets/stard_lo.PNG'), height: 100),
+              Image.asset('assets/stard_lo.PNG', height: 100,),
               SizedBox(
                 height: 20,
               ),
