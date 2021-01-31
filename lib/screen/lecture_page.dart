@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../data.dart';
 import 'dart:math';
 
@@ -38,41 +39,52 @@ class _LecturePageState extends State<LecturePage> {
       ),
       backgroundColor: Color(0xff219077),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                "왕초보 추천강의",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontFamily: "Calibre-Semibold",
-                  letterSpacing: 1.0,
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xff1A237E),
+                    Color(0xff219077),
+                    //    Color(0xff1A237E),
+                  ])),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  "스타디 추천 플러터 강의",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontFamily: "Calibre-Semibold",
+                    letterSpacing: 1.0,
+                  ),
                 ),
               ),
-            ),
-            Row(
-              children: [
-                Container(),
-              ],
-            ),
-            Stack(
-              children: [
-                CardScrollWidget(currentPage),
-                Positioned.fill(
-                  child: PageView.builder(
-                    itemCount: images.length,
-                    controller: controller,
-                    reverse: true,
-                    itemBuilder: (context, index) {
-                      return Container();
-                    },
-                  ),
-                )
-              ],
-            )
-          ],
+              Row(
+                children: [
+                  Container(),
+                ],
+              ),
+              Stack(
+                children: [
+                  CardScrollWidget(currentPage),
+                  Positioned.fill(
+                    child: PageView.builder(
+                      itemCount: images.length,
+                      controller: controller,
+                      reverse: true,
+                      itemBuilder: (context, index) {
+                        return Container();
+                      },
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -134,7 +146,7 @@ class CardScrollWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      Image.asset(images[i], fit: BoxFit.cover),
+                              Image.asset(images[i], fit: BoxFit.cover),
                       // Align(
                       //   alignment: Alignment.bottomLeft,
                       //   child: Column(
@@ -163,12 +175,27 @@ class CardScrollWidget extends StatelessWidget {
             ),
           );
 
-          cardList.add(cardItem);
+         cardList.add(cardItem);
+
+
+        // cardList.add(GestureDetector(onTap: () => _launchURL(), child: cardItem));
+
+
         }
         return Stack(
           children: cardList,
+
         );
       }),
     );
+  }
+}
+
+_launchURL() async {
+  const url = 'https://www.youtube.com/watch?v=lRbZsBvG9Ig&list=PLxTmPHxRH3VUueVvEnrP8qxHAP5x9XAPv';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
