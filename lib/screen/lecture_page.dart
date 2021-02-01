@@ -14,6 +14,7 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _LecturePageState extends State<LecturePage> {
   var currentPage = images.length - 1.0;
+  var currentUrl = urls.length - 1.0;  // 현재 url 추가
 
   @override
   Widget build(BuildContext context) {
@@ -63,25 +64,28 @@ class _LecturePageState extends State<LecturePage> {
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Container(),
-                ],
-              ),
-              Stack(
-                children: [
-                  CardScrollWidget(currentPage),
-                  Positioned.fill(
-                    child: PageView.builder(
-                      itemCount: images.length,
-                      controller: controller,
-                      reverse: true,
-                      itemBuilder: (context, index) {
-                        return Container();
-                      },
-                    ),
-                  )
-                ],
+              // Row(
+              //   children: [
+              //     Container(),
+              //   ],
+              // ),
+              GestureDetector(
+                onTap: _launchURL,
+                child: Stack(
+                  children: [
+                    CardScrollWidget(currentPage),
+                    Positioned.fill(
+                      child: PageView.builder(
+                        itemCount: images.length,
+                        controller: controller,
+                        reverse: true,
+                        itemBuilder: (context, index) {
+                          return Container();
+                        },
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
@@ -192,7 +196,11 @@ class CardScrollWidget extends StatelessWidget {
 }
 
 _launchURL() async {
-  const url = 'https://www.youtube.com/watch?v=lRbZsBvG9Ig&list=PLxTmPHxRH3VUueVvEnrP8qxHAP5x9XAPv';
+
+  int i = (urls.length -1);  // 현재 url 추가
+
+  final url = urls[i];
+ //   const url = 'https://www.youtube.com/watch?v=lRbZsBvG9Ig&list=PLxTmPHxRH3VUueVvEnrP8qxHAP5x9XAPv';
   if (await canLaunch(url)) {
     await launch(url);
   } else {

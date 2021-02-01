@@ -34,7 +34,7 @@ class _SpeedPageState extends State<SpeedPage> {
               //    Color(0xff1A237E),
             ])),
         child: Padding(
-          padding: EdgeInsets.only(top: 50.0),
+          padding: EdgeInsets.only(top: 100.0),
           child: ListView(
             padding: const EdgeInsets.all(20.0),
             children: <Widget>[
