@@ -61,7 +61,7 @@ class _BasicPageState extends State<BasicPage> {
                     width: 250,
                     child: Center(
                         child: Text(
-                            '  천천히 차례대로 읽어보세요. \n 해당 링크는 스타디 카페 글로 연결됩니다. ')),
+                            '   천천히 차례대로 읽어보세요. \n 해당 링크는 스타디 카페 글로 연결 ')),
                   ),
                   Icon(
                     Icons.arrow_downward,
@@ -93,7 +93,7 @@ class _BasicPageState extends State<BasicPage> {
                 color: Colors.grey[900],
                 child: Center(
                   child: InkWell(
-                    child: Text('Flutter 입문 소개'),
+                    child: Text('1.Flutter 입문 소개'),
                     onTap: () => launch('https://cafe.naver.com/wanganmo/182'),
                   ),
                 ),
@@ -106,7 +106,7 @@ class _BasicPageState extends State<BasicPage> {
                         text: TextSpan(children: [
                       TextSpan(
                           style: linkText,
-                          text: "Dart 문법 기초 총정리",
+                          text: "2.Dart 문법 기초 총정리",
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
                               var url = "https://cafe.naver.com/wanganmo/892";
@@ -123,7 +123,7 @@ class _BasicPageState extends State<BasicPage> {
                 color: Colors.grey[800],
                 child: Center(
                   child: InkWell(
-                    child: Text('Widget의 구성과 구조'),
+                    child: Text('3.Widget의 구성과 구조'),
                     onTap: () => launch('https://cafe.naver.com/wanganmo/729'),
                   ),
                 ),

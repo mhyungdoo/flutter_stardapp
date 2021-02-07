@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.black,
                     ),
                     Text(
-                      '    Flutter를 배우고자 하는 \n 왕초보 학습 가이드 앱입니다.',
+                      '    Flutter를 배우고자 하는 \n 왕초보 학습 교재용 앱입니다.',
                       style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     Icon(

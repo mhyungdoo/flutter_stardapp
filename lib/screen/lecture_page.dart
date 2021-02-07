@@ -4,6 +4,9 @@ import 'package:url_launcher/url_launcher.dart';
 import '../data.dart';
 import 'dart:math';
 
+import '../data.dart';
+import '../data.dart';
+
 class LecturePage extends StatefulWidget {
   @override
   _LecturePageState createState() => _LecturePageState();
@@ -70,7 +73,7 @@ class _LecturePageState extends State<LecturePage> {
               //   ],
               // ),
               GestureDetector(
-                onTap: _launchURL,
+                onTap: launchURL,
                 child: Stack(
                   children: [
                     CardScrollWidget(currentPage),
@@ -86,7 +89,14 @@ class _LecturePageState extends State<LecturePage> {
                     )
                   ],
                 ),
-              )
+              ),
+              RaisedButton(
+                onPressed: () => launch('https://cafe.naver.com/wanganmo/895'),
+                child: Text(
+                  'Flutter 강의 4대천왕 바로가기',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ],
           ),
         ),
@@ -195,15 +205,14 @@ class CardScrollWidget extends StatelessWidget {
   }
 }
 
-_launchURL() async {
 
-  int i = (urls.length -1);  // 현재 url 추가
+launchURL() async {
 
-  final url = urls[i];
- //   const url = 'https://www.youtube.com/watch?v=lRbZsBvG9Ig&list=PLxTmPHxRH3VUueVvEnrP8qxHAP5x9XAPv';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+     int i = 0;
+    final url = urls[i];
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
 }
