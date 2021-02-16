@@ -1,4 +1,4 @@
-package com.example.stardapp20210105
+package com.issuecon.stardapp20210105
 
 import io.flutter.embedding.android.FlutterActivity
 
